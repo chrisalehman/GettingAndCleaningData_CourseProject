@@ -12,7 +12,7 @@ Create one R script called run_analysis.R that does the following:
 The raw data set used in this assignment is avaialble here: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
 ## Executing the code
-The code for creating a tidy data set is contained in a script called "run_analysis.R" in the base directory of the repo. Please follow these steps to execute this script successfully: 
+The code for creating a tidy data set is contained in a script called "run_analysis.R" in the base directory of the repo. Follow these steps to execute this script: 
 * Download the raw data set indicated above and unzip it in your working directory. The unzipped file will create a directory called "UCI HAR Dataset". 
 * Source the run_analysis.R script.
 * Execute the function "createTidyDataSet()". When it completes a tidy data set will be written to a file in the working directory called "tidy_data_set.txt". 
