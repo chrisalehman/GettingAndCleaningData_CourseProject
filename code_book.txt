@@ -8,17 +8,20 @@ Date: 6/20/2015
 
 Summary
 ==================================================================
-This code book documents the methodolgy used collecting data for this project, as well as a description of each variable included in the output tidy data set. 
+This code book documents the methodolgy used collecting data for this project, as well as a description of each variable 
+included in the output tidy data set. 
 
 
 Study design
 ==================================================================
-The raw data used in this project was collected from the accelerometers of the Samsung Galaxy S smartphone. A full description of this data is available here: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones.
+The raw data used in this project was collected from the accelerometers of the Samsung Galaxy S smartphone. A full description 
+of this data is available here: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones.
 
 The raw data is available here: 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
-The purpose of this project was to create a tidy data set based on the raw accelerometer data. Additional requirements were as follows: 
+The purpose of this project was to create a tidy data set based on the raw accelerometer data. Additional requirements were as 
+follows: 
 - Merge the training and test data sets
 - Extract the measurements of the mean and standard deviation of each measurement type
 - Use descriptive names for the activities in the data set
@@ -27,19 +30,32 @@ The purpose of this project was to create a tidy data set based on the raw accel
 
 At a high level, the following steps were performed to process this data:
 
-1. Load the training and test measurement data sets and merge them with rbind. This was possible because each data set contained precisely the same number of columns. 
+1. Load the training and test measurement data sets and merge them with rbind. This was possible because each data set contained 
+precisely the same number of columns. 
 
 2. Load the associated training and test headers and merge them with the measurements data set. 
 
-NOTE: This process was complicated by the fact that several headers were duplicates. These duplciates made it difficult to select the mean and standard deviation data because the select() function in the dplyr package expects all columns to be unique. Furthermore, it raised questions about the integrity of the data as one might expect the measurements to contain duplicates as well. However, as none of the mean and standard deviation headers or measurement data contained duplicates, this problem was not fatal to the project. The make.names() function was used to force the creation of unique headers. Later these headers were cleaned with regex to product more meaningful names. 
+NOTE: This process was complicated by the fact that several headers were duplicates. These duplciates made it difficult to select
+the mean and standard deviation data because the select() function in the dplyr package expects all columns to be unique. 
+Furthermore, it raised questions about the integrity of the data as one might expect the measurements to contain duplicates as 
+well. However, as none of the mean and standard deviation headers or measurement data contained duplicates, this problem was not 
+fatal to the project. The make.names() function was used to force the creation of unique headers. Later these headers were 
+cleaned with regex to product more meaningful names. 
 
-3. Merge the activity names into the data set. The process involved a few steps. The activities were contained in separate test and training dataset files. These files contained numbers representing various activities. A separate file called activity_labels.txt contained a mapping of the activity names to the numbers contained in the files. Thus, it was necessary first to load and merge the activity files containing only numbers, and then apply a function to generate a secondary column containing all the activity names. Both columns were inserted into the measurements dataset. 
+3. Merge the activity names into the data set. The process involved a few steps. The activities were contained in separate test 
+and training dataset files. These files contained numbers representing various activities. A separate file called 
+activity_labels.txt contained a mapping of the activity names to the numbers contained in the files. Thus, it was necessary 
+first to load and merge the activity files containing only numbers, and then apply a function to generate a secondary column 
+containing all the activity names. Both columns were inserted into the measurements dataset. 
 
-4. Load and then merge the subjects into to measurements dataset. Several subjects were used in this study, indcated by numbers 1-30. The subject data was again contained in a test file and a training file that needed to be merged. 
+4. Load and then merge the subjects into to measurements dataset. Several subjects were used in this study, indcated by numbers 
+1-30. The subject data was again contained in a test file and a training file that needed to be merged. 
 
-5. Once a complete dataset was formed, the subject, activity and measurement data for mean and standard deviation was extracted via the dplyr select() function. This produced 66 measurement columns. 
+5. Once a complete dataset was formed, the subject, activity and measurement data for mean and standard deviation was extracted 
+via the dplyr select() function. This produced 66 measurement columns. 
 
-6. The aggregate() function was used to take a mean of all measurements data for each subject and activity combination. The same column names were used in the final tidy data set. 
+6. The aggregate() function was used to take a mean of all measurements data for each subject and activity combination. The same 
+column names were used in the final tidy data set. 
 
 7. Finally, the resulting data was exported to a file called "tidy_data_set.txt".
 
@@ -47,9 +63,11 @@ NOTE: This process was complicated by the fact that several headers were duplica
 Code book
 ==================================================================
 
-Units for measurements data: The raw accelerometer readings have already been normalised into a range between -1 and 1, and so are essentially unitless. 
+Units for measurements data: The raw accelerometer readings have already been normalised into a range between -1 and 1, and so 
+are essentially unitless. 
 
-Also note: All measurements data are mean calculations for each subject-activity pair, i.e., means taken of the original mean and standard deviation measurements per subject-activity pair. 
+Also note: All measurements data are mean calculations for each subject-activity pair, i.e., means taken of the original mean 
+and standard deviation measurements per subject-activity pair. 
 
 The final data set contains the following variables: 
 
