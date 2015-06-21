@@ -27,13 +27,10 @@ At a high level, the following steps were performed to process this data:
 1. Load the training and test measurement data sets and merge them with rbind. This was possible because each data set contained 
 precisely the same number of columns. 
 
-2. Load the associated training and test headers and merge them with the measurements data set. 
-
-NOTE: This process was complicated by the fact that several headers were duplicates. These duplciates made it difficult to select
+2. Load the associated training and test headers and merge them with the measurements data set. NOTE: This process was complicated by the fact that several headers were duplicates. These duplciates made it difficult to select
 the mean and standard deviation data because the select() function in the dplyr package expects all columns to be unique. 
 Furthermore, it raised questions about the integrity of the data as one might expect the measurements to contain duplicates as 
-well. However, as none of the mean and standard deviation headers or measurement data contained duplicates, this problem was not 
-fatal to the project. The make.names() function was used to force the creation of unique headers. Later these headers were 
+well. However, as none of the mean and standard deviation headers or measurement data contained duplicates, this problem was not fatal to the project. The make.names() function was used to force the creation of unique headers. Later these headers were 
 cleaned with regex to product more meaningful names. 
 
 3. Merge the activity names into the data set. The process involved a few steps. The activities were contained in separate test 
