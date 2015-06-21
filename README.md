@@ -1,7 +1,7 @@
 # GettingAndCleaningData_CourseProject
 This README documents the course project for the Coursera course "Getting and Cleaning Data". The goal of the assignment is to prepare a tidy data set based on data collected from the accelerometers of the Samsung Galaxy S smartphone.
 
-## Instructions of assignment
+## Assignment instructions
 Create one R script called run_analysis.R that does the following:
 * Merges the training and the test sets to create one data set.
 * Extracts only the measurements on the mean and standard deviation for each measurement. 
