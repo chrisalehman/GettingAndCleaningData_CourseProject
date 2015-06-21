@@ -18,7 +18,7 @@ The code for creating a tidy data set is contained in a script called "run_analy
 * Execute the function "createTidyDataSet()". When it completes a tidy data set will be written to a file in the working directory called "tidy_data_set.txt". 
 
 ## Code book
-A code book is included in this repo describing the methodology for obtaining final data set and a description of the data set's variables. The file is called "code_book.txt". 
+A code book is included in the base directory of this repo describing the methodology for obtaining final data set and a description of the data set's variables. The file is called "code_book.txt". 
 
 
 
