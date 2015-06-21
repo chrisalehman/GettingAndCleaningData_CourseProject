@@ -61,9 +61,9 @@ names were used in the final tidy data set.
 Code book
 ==================================================================
 
-All signals captured in the measurements data below are at 50Hz. 
+Units for measurements data: The raw accelerometer readings have already been normalised into a range between -1 and 1, and so are essentially unitless. 
 
-Note that all measurements data below are mean calculations for each subject-activity pair. 
+Also note: All measurements data are mean calculations for each subject-activity pair, i.e., means taken of the original mean and standard deviation measurements per subject-activity pair. 
 
 The final data set contains the following variables: 
 
